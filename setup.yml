@@ -1,0 +1,8 @@
+- name: a playbook to setup my local machine with my basic customizations
+  hosts: default
+  connection: local
+  tasks:
+    - name: Disable xscreensaver
+      # become_user: zac
+      become: true
+      shell: sh ./files/disable-xscreensaver.sh
