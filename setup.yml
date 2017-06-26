@@ -10,6 +10,7 @@
     - name: Disable xscreensaver
       shell: sh ./files/disable-xscreensaver.sh
 
+    - include: tasks/ssh.yml
     - include: tasks/tools.yml
     - include: tasks/atom.yml
     - include: tasks/nodejs.yml
