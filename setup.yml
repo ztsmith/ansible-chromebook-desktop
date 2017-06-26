@@ -12,4 +12,5 @@
 
     - include: tasks/tools.yml
     - include: tasks/atom.yml
+    - include: tasks/nodejs.yml
     - include: tasks/chrome.yml
