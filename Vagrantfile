@@ -34,6 +34,7 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "setup.yml"
     ansible.inventory_path = "./host"
     ansible.install = false
+    ansible.extra_vars = "prompt_vars.yml"
     ansible.verbose = "v"
   end
 

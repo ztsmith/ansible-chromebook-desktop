@@ -1,8 +1,14 @@
 - name: a playbook to setup my local machine with my basic customizations
   hosts: default
   connection: local
+  vars_prompt:
+    - name: atom_github_access_token
+      prompt: Enter the github access_token for atom sync-settings
+    - name: ssh_key
+      prompt: Enter the ssh private key to be used
   tasks:
     - name: Disable xscreensaver
-      # become_user: zac
-      become: true
       shell: sh ./files/disable-xscreensaver.sh
+
+    - include: tasks/tools.yml
+    - include: tasks/atom.yml

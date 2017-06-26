@@ -2,3 +2,4 @@
 *.log
 *.retry
 .vagrant
+prompt_vars.yml

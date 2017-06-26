@@ -1,0 +1,24 @@
+---
+
+- name: add atom apt repository
+  apt_repository:
+    repo: ppa:webupd8team/atom
+  become: yes
+
+- name: install atom
+  become: yes
+  apt:
+    name: atom
+    state: installed
+
+- name: install atom sync-settings
+  command: apm install sync-settings
+
+- name: inject config for sync-settings package
+  blockinfile:
+    path: ~/.atom/config.cson
+    marker: "# {mark} Managed by Ansible"
+    content: |2
+        "sync-settings":
+          gistId: "33c03d9a69f971874341e9bf91bcd46f"
+          personalAccessToken: "{{ atom_github_access_token }}"
