@@ -1,6 +1,7 @@
 # Ansible script to configure an Ubuntu desktop
 
 An ansible script to set up my Chromebook crouton Linux OS (Ubuntu 16.04 with xfce4).
+Inspired by: https://github.com/JBKahn/provisioning-local
 
 ## To run:
 ```bash

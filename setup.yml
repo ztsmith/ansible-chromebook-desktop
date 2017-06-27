@@ -8,7 +8,10 @@
       prompt: Enter the ssh private key to be used
   tasks:
     - name: Disable xscreensaver
-      command: files/disable-xscreensaver.sh
+      become: true
+      apt:
+        name: xscreensaver
+        state: absent
 
     - include: tasks/ssh.yml
     - include: tasks/tools.yml
