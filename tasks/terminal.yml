@@ -1,0 +1,36 @@
+---
+
+- name: Install common tools
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: installed
+    update_cache: yes
+  with_items:
+    - curl
+    - nano
+    - git
+    - lsof
+    - apache2-utils
+
+- name: Copy dotfiles
+  copy:
+    src: dotfiles/
+    dest: "{{ ansible_env.HOME}}"
+
+- name: Force color prompt in terminal
+  lineinfile:
+    dest: ~/.bashrc
+    regexp: "force_color_prompt="
+    line: "force_color_prompt=yes"
+
+- name: Source bash customizations
+  blockinfile:
+    dest: ~/.bashrc
+    block: |
+      source ~/.bash_customizations
+
+- name: Create code directory
+  file:
+    path: ~/code
+    state: directory
