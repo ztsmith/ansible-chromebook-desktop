@@ -15,7 +15,7 @@
 
 - name: Copy dotfiles
   copy:
-    src: dotfiles/
+    src: files/dotfiles/
     dest: "{{ ansible_env.HOME}}"
 
 - name: Force color prompt in terminal
