@@ -7,6 +7,6 @@ sudo apt-get -y install \
   libxml2-dev libxslt-dev \
   software-properties-common
 
-sudo apt-add-repository ppa:ansible/ansible
+sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get -y install ansible

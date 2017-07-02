@@ -17,25 +17,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "simulate-chromebook", type: :shell, inline: <<-SHELL
     apt-get install -y xfce4
+    apt-get install -y xfce4-goodies
+    apt-get install -y xserver-xorg-legacy
+    # sed -i 's/allowed_users=console/allowed_users=anybody/' /etc/X11/Xwrapper.config
+    echo "needs_root_rights = yes" >> /etc/X11/Xwrapper.config
 
-    # TODO: remove this if possible
     # set password to ubuntu (default password is randomly generated)
-    echo -e "ubuntu\nubuntu" | passwd ubuntu
-
-    # TODO: remove this if possible
-    useradd zac
-    echo -e "ubuntu\nubuntu" | passwd zac
-    echo "zac ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/zac
+    echo -e "ubuntu\nubuntu" | passwd ubuntus
   SHELL
-
-  config.vm.provision "bootstrap", type: :shell, path: "./bootstrap.sh"
-
-  config.vm.provision "ansible", type: "ansible_local" do |ansible|
-    ansible.playbook = "setup.yml"
-    ansible.inventory_path = "./host"
-    ansible.install = false
-    ansible.extra_vars = "prompt_vars.yml"
-    ansible.verbose = "v"
-  end
 
 end
