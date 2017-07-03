@@ -1,0 +1,14 @@
+---
+
+# - name: Disable xscreensaver
+#   become: true
+#   apt:
+#     name: xscreensaver
+#     state: absent
+
+- name: Remove default panel
+  command: "xfconf-query -c xfce4-panel -p /panels -t int -s 1 -a"
+  
+# todo: test if this works
+- name: Reload panels
+  command: xfce4-panel -r

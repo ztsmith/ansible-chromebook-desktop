@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     echo "needs_root_rights = yes" >> /etc/X11/Xwrapper.config
 
     # set password to ubuntu (default password is randomly generated)
-    echo -e "ubuntu\nubuntu" | passwd ubuntus
+    echo -e "ubuntu\nubuntu" | passwd ubuntu
   SHELL
 
 end

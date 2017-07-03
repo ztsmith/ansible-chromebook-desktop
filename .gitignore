@@ -1,5 +1,8 @@
 .DS_Store
 *.log
+*.out
 *.retry
 .vagrant
 prompt_vars.yml
+roles/*
+!roles/local.*

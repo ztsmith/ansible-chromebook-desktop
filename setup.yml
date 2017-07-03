@@ -6,15 +6,22 @@
       prompt: Enter the github access_token for atom sync-settings
     - name: ssh_key
       prompt: Enter the ssh private key to be used
-  tasks:
-    - name: Disable xscreensaver
-      become: true
-      apt:
-        name: xscreensaver
-        state: absent
 
-    - include: tasks/ssh.yml
-    - include: tasks/tools.yml
-    - include: tasks/atom.yml
-    - include: tasks/nodejs.yml
-    - include: tasks/chrome.yml
+  roles:
+    - local.ssh
+    - local.terminal
+    - local.nodejs
+    - local.desktop
+    - local.atom
+    - local.fonts
+    - local.theme
+    - local.chrome
+    - role: avnes.ansible-role-plank
+      clock_dock_item_on: no
+      clippy_dock_item_on: no
+      desktop_dock_item_on: no
+      trash_dock_item_on: no
+      plank_dock_items:
+        - { name: 'xfce4-terminal', path: '/usr/share/applications/xfce4-terminal.desktop' }
+        - { name: 'atom', path: '/usr/share/applications/atom.desktop' }
+        - { name: 'chrome-browser', path: '/usr/share/applications/google-chrome.desktop' }

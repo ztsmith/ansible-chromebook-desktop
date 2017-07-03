@@ -1,4 +1,5 @@
 ---
+
 - name: install numix theme - add numix ppa
   apt_repository:
     repo: 'ppa:numix/ppa'
@@ -19,9 +20,7 @@
   sudo: yes
 
 - name: install numix theme - set gtk theme to Numix
-  become: true
   command: 'xfconf-query -c xsettings -p /Net/ThemeName -s "Numix"'
 
 - name: install numix theme - set icons to circle
-  become: true
-  command: 'xfconf-query -c xsettings -p /Net/IconThemeName -s "Numix-Circle"'
+  command: xfconf-query -c xsettings -p /Net/IconThemeName -s "Numix-Circle"

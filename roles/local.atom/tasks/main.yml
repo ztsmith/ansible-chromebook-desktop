@@ -14,6 +14,12 @@
 - name: install atom sync-settings
   command: apm install sync-settings
 
+- name: create confg.cson
+  file:
+    path: ~/.atom/config.cson
+    state: touch
+    mode: 0664
+
 - name: inject config for sync-settings package
   blockinfile:
     path: ~/.atom/config.cson
