@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# install git/ansible (remote bootstrap)
-# git clone
-# run ansible
-
 cd ~
-git clone https://github.com/ztsmith/chromebook-ubuntu-desktop.git
-cd chromebook-ubuntu-desktop
+git clone https://github.com/ztsmith/ansible-chromebook-desktop.git
+cd ansible-chromebook-desktop
 
+./bootstrap.sh
 ansible-playbook -i host setup.yml -v
 
-source ~/.bashrc
+nohup plank &
+
+echo "Run 'source ~/.bashrc' for shell customizations to take affect."
+
 exit 0
