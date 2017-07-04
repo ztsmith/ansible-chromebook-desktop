@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
   end
 
   config.vm.provision "simulate-chromebook", type: :shell, inline: <<-SHELL
