@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 22, host: 2422, host_ip: "0.0.0.0", id: "ssh"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "chromebook-ubuntu-desktop"
+    vb.name = "ansible-chromebook-desktop"
     vb.memory = "1024"
     vb.gui = true
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
     apt-get install -y xfce4
     apt-get install -y xfce4-goodies
     apt-get install -y xserver-xorg-legacy
-    # sed -i 's/allowed_users=console/allowed_users=anybody/' /etc/X11/Xwrapper.config
     echo "needs_root_rights = yes" >> /etc/X11/Xwrapper.config
 
     # set password to ubuntu (default password is randomly generated)
