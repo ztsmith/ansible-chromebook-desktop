@@ -17,7 +17,7 @@ Inspired by: https://github.com/JBKahn/provisioning-local
 This assumes a base ubuntu 16.06 LTS with xfce installed.
 From an XFCE session, open the terminal and run:
 ```bash
-wget -qO- https://github.com/JBKahn/provisioning-local/raw/master/run.sh | bash
+wget -qO- https://github.com/ztsmith/ansible-chromebook-desktop/raw/master/run.sh | bash
 ```
 
 ## Vagrant notes
