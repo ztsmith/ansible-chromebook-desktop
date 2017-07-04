@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 cd ~
 git clone https://github.com/ztsmith/ansible-chromebook-desktop.git
 cd ansible-chromebook-desktop
