@@ -5,19 +5,19 @@
     repo: 'ppa:numix/ppa'
     state: present
     update_cache: yes
-  sudo: yes
+  become: yes
 
 - name: install numix theme - install circle icon theme
   apt:
     name: numix-icon-theme-circle
     update_cache: yes
-  sudo: yes
+  become: yes
 
 - name: install numix theme - install gtk theme
   apt:
     name: numix-gtk-theme
     update_cache: yes
-  sudo: yes
+  become: yes
 
 - name: install numix theme - set gtk theme to Numix
   command: 'xfconf-query -c xsettings -p /Net/ThemeName -s "Numix"'
