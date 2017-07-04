@@ -13,6 +13,16 @@
     - lsof
     - apache2-utils
 
+- name: Create terminal directory
+  file:
+    path: ~/.config/xfce4/terminal
+    state: directory
+
+- name: Copy terminalrc settings file
+  copy:
+    src: files/terminalrc
+    dest: ~/.config/xfce4/terminal/terminalrc
+
 - name: Download base16 colors
   git:
     repo: https://github.com/chriskempson/base16-shell
