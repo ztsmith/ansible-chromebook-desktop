@@ -3,6 +3,7 @@
 set -e
 
 ./bootstrap.sh
+ansible-galaxy install -r requirements.yml
 ansible-playbook -i host setup.yml -v --extra-vars @prompt_vars.yml
 
 nohup plank &
