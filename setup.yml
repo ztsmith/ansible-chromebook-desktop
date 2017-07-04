@@ -7,6 +7,14 @@
     - name: ssh_key
       prompt: Enter the ssh private key to be used
 
+  pre_tasks:
+    - name: upgrade packages
+      apt:
+        upgrade: full
+        update_cache: yes
+        cache_valid_time: 300
+      become: yes
+
   roles:
     - local.ssh
     - local.terminal
