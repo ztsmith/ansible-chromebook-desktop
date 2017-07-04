@@ -1,0 +1,5 @@
+---
+# This file lists all role dependencies
+# To install, run: ansible-galaxy install -r requirements.yml
+
+- src: avnes.ansible-role-plank
