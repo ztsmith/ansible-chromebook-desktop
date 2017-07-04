@@ -30,11 +30,9 @@ Vagrant is used to test the config.
 $ cd /vagrant
 run-local.sh
 ```
-* To include runtime/secret vars (e.g. ssh key), create a file named `prompt_vars.yml` with the following content:
+* To include runtime/secret vars, create a file named `prompt_vars.yml` with the following content:
   ```yml
   atom_github_access_token: abc
-  ssh_key: |
-    xxx
   ```
   These vars will be prompted for outside of Vagrant. i.e. a real Ansible run.
 

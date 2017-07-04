@@ -4,8 +4,6 @@
   vars_prompt:
     - name: atom_github_access_token
       prompt: Enter the github access_token for atom sync-settings
-    - name: ssh_key
-      prompt: Enter the ssh private key to be used
 
   pre_tasks:
     - name: upgrade packages
@@ -16,7 +14,6 @@
       become: yes
 
   roles:
-    - local.ssh
     - local.terminal
     - local.nodejs
     - local.atom
