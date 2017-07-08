@@ -4,6 +4,9 @@ alias ll='ls -laFh'
 # grep with color
 alias grep='grep --color=auto'
 
+# simple command for piping to clip board in linux
+alias xclip="xclip -selection c"
+
 # force npm cache
 alias npminstall='npm install --cache-min Infinity'
 
