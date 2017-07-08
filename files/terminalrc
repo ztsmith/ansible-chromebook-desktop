@@ -19,3 +19,4 @@ MiscScrollAlternateScreen=TRUE
 ScrollingLines=50000
 MiscDefaultGeometry=80x24
 FontAllowBold=FALSE
+Encoding=UTF-8
