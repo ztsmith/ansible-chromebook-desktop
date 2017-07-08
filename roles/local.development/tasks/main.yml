@@ -1,0 +1,38 @@
+---
+
+- name: detect if nvm installed
+  stat:
+    path: ~/.nvm
+  register: nvm_dir
+  ignore_errors: yes
+
+- name: install nvm
+  shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+  when: nvm_dir.stat.exists == False
+
+- name: install nodejs
+  shell: source {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install --lts=boron
+  when: nvm_dir.stat.exists == False
+  args:
+    executable: /bin/bash
+
+- name: install global nodejs packages
+  shell: source {{ ansible_env.HOME }}/.nvm/nvm.sh && npm install -g {{ item.name }}
+  args:
+    executable: /bin/bash
+  with_items:
+    - name: "bunyan"
+    - name: "@google-cloud/functions-emulator"
+
+- name: detect if google-cloud-sdk installed
+  stat:
+    path: ~/google-cloud-sdk
+  register: gcloud_sdk_dir
+  ignore_errors: yes
+
+- name: Install google-cloud sdk
+  unarchive:
+    src: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-161.0.0-linux-x86_64.tar.gz
+    dest: ~/
+    remote_src: True
+  when: gcloud_sdk_dir.stat.exists == False

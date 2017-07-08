@@ -14,13 +14,20 @@
       become: yes
 
   roles:
-    - local.terminal
-    - local.nodejs
-    - local.atom
-    - local.fonts
-    - local.theme
-    - local.chrome
+    - role: local.terminal
+      tags: terminal
+    - role: local.development
+      tags: development
+    - role: local.atom
+      tags: atom
+    - role: local.fonts
+      tags: fonts
+    - role: local.theme
+      tags: theme
+    - role: local.chrome
+      tags: chrome
     - role: avnes.ansible-role-plank
+      tags: plank
       clock_dock_item_on: no
       clippy_dock_item_on: no
       desktop_dock_item_on: no
