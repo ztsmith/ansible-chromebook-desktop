@@ -1,18 +1,5 @@
 ---
 
-- name: Install common tools
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: installed
-    update_cache: yes
-  with_items:
-    - curl
-    - nano
-    - git
-    - lsof
-    - apache2-utils
-
 - name: Create terminal directory
   file:
     path: ~/.config/xfce4/terminal

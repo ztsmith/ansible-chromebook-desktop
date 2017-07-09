@@ -1,5 +1,19 @@
 ---
 
+- name: Install common tools
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: installed
+    update_cache: yes
+  with_items:
+    - curl
+    - nano
+    - git
+    - lsof
+    - apache2-utils
+    - default-jdk
+    
 - name: detect if nvm installed
   stat:
     path: ~/.nvm
