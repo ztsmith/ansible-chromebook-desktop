@@ -36,4 +36,5 @@
         - { name: 'xfce4-terminal', path: '/usr/share/applications/xfce4-terminal.desktop' }
         - { name: 'atom', path: '/usr/share/applications/atom.desktop' }
         - { name: 'chrome-browser', path: '/usr/share/applications/google-chrome.desktop' }
-    - local.desktop
+    - role: local.desktop
+      tags: desktop

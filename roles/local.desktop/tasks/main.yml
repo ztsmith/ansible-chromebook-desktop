@@ -12,6 +12,14 @@
 - name: Set clock to 12hr
   command: "xfconf-query -c xfce4-panel -p /plugins/plugin-5/digital-format -t %I:%M %p"
 
+- name: Hide desktop icons
+  command: xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/{{item}} -s false
+  with_items:
+    - show-filesystem
+    - show-home
+    - show-removable
+    - show-trash
+
 - name: Reload panels
   command: xfce4-panel -r
 
