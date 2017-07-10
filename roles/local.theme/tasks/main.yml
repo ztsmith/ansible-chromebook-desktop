@@ -24,3 +24,9 @@
 
 - name: install numix theme - set icons to circle
   command: xfconf-query -c xsettings -p /Net/IconThemeName -s "Numix-Circle"
+
+- name: Set window theme
+  command: xfconf-query -c xfwm4 -p /general/theme -s Numix
+
+- name: Set window title font
+  command: 'xfconf-query -c xfwm4 -p /general/title_font -s "Fira Sans 11"'
