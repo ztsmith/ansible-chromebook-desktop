@@ -13,7 +13,16 @@
     - lsof
     - apache2-utils
     - default-jdk
-    
+    - build-essential
+    - libbz2-dev
+    - libssl-dev
+    - libreadline-dev
+    - libsqlite3-dev
+    - tk-dev
+    - libpng-dev
+    - libfreetype6-dev
+    # - python-pip
+
 - name: detect if nvm installed
   stat:
     path: ~/.nvm
@@ -37,6 +46,12 @@
   with_items:
     - name: "bunyan"
     - name: "@google-cloud/functions-emulator"
+
+- name: install pyenv
+  shell: curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+
+- name: install python 3
+  command: pyenv install 3.6.2
 
 - name: detect if google-cloud-sdk installed
   stat:
